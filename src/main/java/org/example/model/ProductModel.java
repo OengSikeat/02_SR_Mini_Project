@@ -1,17 +1,21 @@
 package org.example.model;
 
+import java.util.Date;
+
 public class ProductModel {
     private int id;
     private String product_name;
     private double unit_price;
     private int quantity;
+    private Date importdate;
 
 
-    public ProductModel(int id, String product_name, double unit_price, int quantity) {
+    public ProductModel(int id, String product_name, double unit_price, int quantity,Date importdate) {
         this.id = id;
         this.product_name = product_name;
         this.unit_price = unit_price;
         this.quantity = quantity;
+        this.importdate=importdate;
     }
 
     public int getId() {
@@ -34,6 +38,14 @@ public class ProductModel {
         return unit_price;
     }
 
+    public Date getImportdate() {
+        return importdate;
+    }
+
+    public void setImportdate(Date importdate) {
+        this.importdate = importdate;
+    }
+
     public void setUnit_price(double unit_price) {
         this.unit_price = unit_price;
     }
@@ -48,11 +60,11 @@ public class ProductModel {
 
     @Override
     public String toString() {
-        return "ProductModel{" +
-                "id=" + id +
-                ", product_name='" + product_name + '\'' +
-                ", unit_price=" + unit_price +
-                ", quantity=" + quantity +
-                '}';
+        return "" +
+                "" + id +
+                "" + product_name +
+                "" + unit_price +
+                "" + quantity+
+                ""+importdate;
     }
 }
