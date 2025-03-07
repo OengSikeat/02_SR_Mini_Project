@@ -2,6 +2,7 @@ package org.example;
 
 import org.example.controller.ProductController;
 import org.example.service.ProductService;
+import org.example.uitis.ValidationUtils;
 import org.example.view.ProductView;
 
 import java.sql.SQLException;
@@ -11,6 +12,9 @@ public class Main {
         ProductService ps=new ProductService();
         ProductView pv=new ProductView();
         ProductController pc=new ProductController();
+
+
+
 
         pv.showMenu();
         pc.choice();
