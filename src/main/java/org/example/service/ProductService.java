@@ -8,6 +8,7 @@ import java.util.List;
 
 public class ProductService {
     ProductModel pm;
+    //
     String url="jdbc:postgresql://localhost:5432/tbproduct";
     String user="postgres";
     String password="keat6951";

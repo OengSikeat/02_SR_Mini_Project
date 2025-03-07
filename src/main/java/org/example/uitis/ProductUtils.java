@@ -22,6 +22,9 @@ public class ProductUtils {
     public void ReadID(){
 
     }
+    public void Update(){
+
+    }
     public void Delete(){
 
     }

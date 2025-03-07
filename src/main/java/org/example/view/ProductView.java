@@ -32,10 +32,6 @@ public class ProductView {
         productTable.setColumnWidth(2,20,20);
         productTable.setColumnWidth(3,20,20);
         productTable.setColumnWidth(4,20,20);
-
-
-
-
             productTable.addCell("ID");
             productTable.addCell("Name");
             productTable.addCell("Unit Price");

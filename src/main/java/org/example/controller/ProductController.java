@@ -43,6 +43,7 @@ public class ProductController {
                 case"g"->utils.Goto();
                 case"w"->utils.Write();
                 case"r"->utils.ReadID();
+                case"u"->utils.Update();
                 case"d"->utils.Delete();
                 case"s"->utils.SearchName();
                 case"se"->utils.SetRow();
