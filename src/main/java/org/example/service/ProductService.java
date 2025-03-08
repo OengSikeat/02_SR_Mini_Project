@@ -9,13 +9,13 @@ import java.util.List;
 public class ProductService {
     ProductModel pm;
     //
-    String url="jdbc:postgresql://localhost:5432/tbproduct";
-    String user="postgres";
-    String password="keat6951";
+    String url = "jdbc:postgresql://localhost:5432/postgres";
+    String user = "postgres";
+    String password = "151003";
 
 
-    public Connection getConnection() throws SQLException{
-        return DriverManager.getConnection(url,user,password);
+    public Connection getConnection() throws SQLException {
+        return DriverManager.getConnection(url, user, password);
     }
 
     public static void closeConnection(Connection connection) {
@@ -31,13 +31,13 @@ public class ProductService {
 
 
     //READ
-    public List<ProductModel> getAllProduct(){
-        List <ProductModel> products= new ArrayList<>();
-        String sql="SELECT * FROM productTB";
+    public List<ProductModel> getAllProduct() {
+        List<ProductModel> products = new ArrayList<>();
+        String sql = "SELECT * FROM producttb";
 
         try (Connection cnt = getConnection();
-             Statement stm=cnt.createStatement();
-             ResultSet rs=stm.executeQuery(sql)){
+             Statement stm = cnt.createStatement();
+             ResultSet rs = stm.executeQuery(sql)) {
 
             while (rs.next()) {
 
@@ -51,8 +51,7 @@ public class ProductService {
                 ProductModel product = new ProductModel(id, productName, unitPrice, quantity, importDate);
                 products.add(product);
             }
-        }
-        catch (SQLException e){
+        } catch (SQLException e) {
             e.printStackTrace();
         }
         return products;
