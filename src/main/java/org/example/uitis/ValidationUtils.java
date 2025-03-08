@@ -6,7 +6,6 @@ public class ValidationUtils {
     static Scanner sc = new Scanner(System.in);
     public static String validateName() {
         while (true) {
-            System.out.print("Enter a name: ");
             String input = sc.nextLine();
 
             if (input.isBlank()) {
@@ -23,7 +22,6 @@ public class ValidationUtils {
     }
     public static double validateUnitPrice() {
         while (true) {
-            System.out.print("Enter a price: ");
             String input = sc.nextLine();
 
             if (input.isBlank()) {
@@ -51,7 +49,6 @@ public class ValidationUtils {
 
     public static int validateQuantity() {
         while (true) {
-            System.out.print("Enter a quantity: ");
             String input = sc.nextLine();
 
             if (input.isBlank()) {
@@ -79,7 +76,6 @@ public class ValidationUtils {
     }
     public static String validateMainOption() {
         while (true) {
-            System.out.print("Enter an option: ");
             String input = sc.nextLine().trim();
 
             if (input.isBlank()) {
@@ -95,8 +91,7 @@ public class ValidationUtils {
         }
     }
     public static int validateUpdate() {
-        while (true) { // Keep asking until valid input is entered
-            System.out.print("Choose an option to update (1-5):");
+        while (true) {
             String input = sc.nextLine().trim();
 
             if (input.isBlank()) {
@@ -104,8 +99,8 @@ public class ValidationUtils {
                 continue; // Ask again
             }
 
-            if (input.matches("^[1-5]$")) { // Matches 1 to 5 only
-                return Integer.parseInt(input); // Return valid number
+            if (input.matches("^[1-5]$")) {
+                return Integer.parseInt(input);
             } else {
                 System.out.println("Invalid input. Please enter a number between 1 and 5.");
             }
