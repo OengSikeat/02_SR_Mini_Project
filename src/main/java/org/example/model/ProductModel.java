@@ -1,5 +1,6 @@
 package org.example.model;
 
+
 public class ProductModel {
     private int id;
     private String product_name;
