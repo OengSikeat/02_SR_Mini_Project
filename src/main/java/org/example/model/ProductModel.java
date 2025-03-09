@@ -17,6 +17,13 @@ public class ProductModel {
         this.quantity = quantity;
         this.importdate=importdate;
     }
+    public ProductModel(int id, String product_name, double unit_price, int quantity) {
+        this.id = id;
+        this.product_name = product_name;
+        this.unit_price = unit_price;
+        this.quantity = quantity;
+    }
+
 
     public int getId() {
         return id;
@@ -67,4 +74,5 @@ public class ProductModel {
                 "" + quantity+
                 ""+importdate;
     }
+
 }
