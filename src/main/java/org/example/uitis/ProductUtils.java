@@ -126,7 +126,7 @@ public class ProductUtils {
                     product.setQuantity(qty);
                     break;
                 case 5:
-                    break;
+                    return;
                 default:
                     System.out.println("\nInvalid option");
                     return;
