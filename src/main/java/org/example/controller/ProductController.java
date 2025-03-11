@@ -38,7 +38,7 @@ public class ProductController {
                 case "ba" -> utils.Backup();
                 case "re" -> utils.Restore();
                 case "e" -> {
-                    return;
+                    System.exit(0);
                 }
                 default -> System.out.println("\nInvalid option! Please try again.");
             }
