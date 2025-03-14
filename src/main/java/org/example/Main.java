@@ -14,7 +14,9 @@ public class Main {
         ProductView pv = new ProductView();
         ProductController pc = new ProductController();
 
-        pv.showMenu();
-        pc.choice();
+        while(true) {
+            pv.showMenu();
+            pc.choice();
+        }
     }
 }

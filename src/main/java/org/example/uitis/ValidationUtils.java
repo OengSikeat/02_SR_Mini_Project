@@ -6,7 +6,7 @@ public class ValidationUtils {
     static Scanner sc = new Scanner(System.in);
     public static String validateName() {
         while (true) {
-            System.out.print("Enter a name: ");
+            System.out.println("Enter Product Name: ");
             String input = sc.nextLine();
 
             if (input.isBlank()) {
@@ -21,9 +21,10 @@ public class ValidationUtils {
         }
 
     }
+
     public static double validateUnitPrice() {
         while (true) {
-            System.out.print("Enter a price: ");
+            System.out.print("Enter Product Price: ");
             String input = sc.nextLine();
 
             if (input.isBlank()) {
@@ -51,7 +52,7 @@ public class ValidationUtils {
 
     public static int validateQuantity() {
         while (true) {
-            System.out.print("Enter a quantity: ");
+            System.out.print("Enter Product Quantity: ");
             String input = sc.nextLine();
 
             if (input.isBlank()) {
@@ -77,10 +78,11 @@ public class ValidationUtils {
             }
         }
     }
+
     public static String validateMainOption() {
         while (true) {
-            System.out.print("Enter an option: ");
-            String input = sc.nextLine().trim();
+            System.out.print("=> Choose your option() : ");
+            String input = sc.nextLine().toLowerCase().trim();
 
             if (input.isBlank()) {
                 System.out.println("Option cannot be blank");
@@ -88,30 +90,56 @@ public class ValidationUtils {
             }
 
             if (input.matches("^[a-zA-Z]+$")) {
-                return input.toUpperCase();
+                return input;
             } else {
                 System.out.println("Invalid option.");
             }
         }
     }
+
     public static int validateUpdate() {
-        while (true) { // Keep asking until valid input is entered
-            System.out.print("Choose an option to update (1-5):");
+        while (true) {
+            System.out.println("\n=> Choose an option: ");
             String input = sc.nextLine().trim();
 
             if (input.isBlank()) {
-                System.out.println("Option update cannot be blank.");
+                System.out.println("Option cannot be blank.");
                 continue; // Ask again
             }
 
-            if (input.matches("^[1-5]$")) { // Matches 1 to 5 only
-                return Integer.parseInt(input); // Return valid number
+            if (input.matches("^[1-5]$")) {
+                return Integer.parseInt(input);
             } else {
                 System.out.println("Invalid input. Please enter a number between 1 and 5.");
             }
         }
     }
 
+    public static int validateID(){
+        while (true) {
+            String input = sc.nextLine();
 
-
+            if (input.isBlank()) {
+                System.out.println("ID cannot be blank");
+                continue;
+            }
+            if (!input.matches("-?[0-9]+")) {
+                System.out.println("Invalid input. Please enter a valid ID (no spaces or letters).");
+                continue;
+            }
+            try {
+                int a = Integer.parseInt(
+                        input);
+                if (a <= 0) {
+                    System.out.println("ID cannot be less than or equal to 0");
+                } else if (a >= 10000000) {
+                    System.out.println("ID cannot be greater than or equal to 10000000");
+                } else {
+                    return a;
+                }
+            } catch (NumberFormatException e) {
+                System.out.println("ID is out of valid integer range.");
+            }
+        }
+    }
 }

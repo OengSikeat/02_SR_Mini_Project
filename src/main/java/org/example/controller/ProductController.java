@@ -2,13 +2,17 @@ package org.example.controller;
 
 import org.example.model.ProductModel;
 import org.example.uitis.ProductUtils;
+import org.example.uitis.ValidationUtils;
 import org.example.view.ProductView;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 import java.util.regex.Pattern;
 
 public class ProductController {
 
+    List<ProductModel> unsaveUpdate = new ArrayList<>();
     ProductView pv = new ProductView();
     ProductModel pm;
     ProductUtils utils = new ProductUtils();
@@ -22,20 +26,11 @@ public class ProductController {
     String RED = "\u001B[31m";
     String RESET = "\u001B[0m";
 
-    String choice;
+
 
     public void choice() {
+        String choice = ValidationUtils.validateMainOption();
         while (true) {
-            System.out.println("Choose your option() : ");
-            choice = sc.nextLine().toLowerCase();
-            if (!Pattern.matches(stringOnlyRegex, choice)) {
-                System.out.println(RED + "wrong input, please enter string only" + RESET);
-                continue;
-            }
-            if (!Pattern.matches(choiceRegex, choice)) {
-                System.out.println(RED + "wrong input try again" + RESET);
-                continue;
-            }
             switch (choice) {
                 case "n" -> utils.Next();
                 case "p" -> utils.Previous();
@@ -52,7 +47,10 @@ public class ProductController {
                 case "un" -> utils.Unsaved();
                 case "ba" -> utils.Backup();
                 case "re" -> utils.Restore();
-                case "e" -> utils.Exit();
+                case "e" -> {
+                    return;
+                }
+                default -> System.out.println("Invalid option! Please try again.");
             }
             break;
         }
